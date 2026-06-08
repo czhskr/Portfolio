@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko" class="has-scenes">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="포트폴리오 웹페이지">
+  <title>이현성 — Portfolio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/scenes.css" as="style">
+  <link rel="preload" href="assets/images/hero_bg.png" as="image" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scenes.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__bar">
+      <div class="header__brand">
+        <a class="header__logo" href="#hero" aria-label="홈">
+          <img class="header__logo-img" src="assets/images/Sign.png" alt="">
+        </a>
+        <span class="header__edition">Portfolio 2026</span>
+      </div>
+      <nav class="header__nav" aria-label="주요 메뉴">
+        <a class="header__link" href="#hero" data-scene-index="0">Home</a>
+        <a class="header__link" href="#about" data-scene-index="1">About</a>
+        <a class="header__link" href="#works" data-scene-index="2">Works</a>
+        <a class="header__link" href="#skills" data-scene-index="3">Skills</a>
+        <a class="header__link" href="#education" data-scene-index="4">Education</a>
+        <a class="header__link" href="#contact" data-scene-index="5">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="scene-rail" id="scene-rail" aria-label="장면 목록">
+    <ol class="scene-rail__list" id="scene-rail-list"></ol>
+  </nav>
+
+  <p class="scene-hint" id="scene-hint" aria-hidden="true">Scroll</p>
+
+  <main class="stage" id="stage">
+
+    <section class="scene scene--hero is-active" id="hero" data-scene="0" aria-hidden="false">
+      <div class="scene__inner scene__inner--hero">
+        <div class="hero__backdrop" data-hero-parallax aria-hidden="true">
+          <div class="hero__layer hero__layer--bg" data-hero-layer="bg">
+            <img src="assets/images/hero_bg.png" alt="" fetchpriority="high" decoding="async">
+          </div>
+          <div class="hero__layer hero__layer--me" data-hero-layer="me">
+            <img src="assets/images/hero_me.png" alt="" decoding="async">
+          </div>
+          <div class="hero__layer hero__layer--flat" data-hero-layer="flat">
+            <img src="assets/images/hero.jpeg" alt="" decoding="async">
+          </div>
+          <div class="hero__backdrop-shade"></div>
+        </div>
+        <div class="scene-panel scene-panel--hero scene-reveal">
+          <p class="hero__edition">Portfolio 2026</p>
+          <h1 class="hero__title">
+            스스로 납득할 때까지 타협하지 않는 완성도를 증명합니다.
+          </h1>
+          <p class="hero__lead">Web & Unity Client Engineer 이현성</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--about" id="about" data-scene="1" aria-hidden="true">
+      <div class="scene__inner">
+        <div class="scene-panel scene-panel--scroll scene-reveal">
+    <section class="about">
+        <header class="section-head section-head--panel">
+          <p class="section-head__index">ii</p>
+          <h2 class="section-head__title">About</h2>
+        </header>
+        <p class="about__text">일단 부딪히며 배우고, 끝까지 파고들어 내 것으로 만드는 개발자입니다.<br>
+          임시방편의 해결보다 원리를 명확히 이해하려 노력하여 프로젝트의 높은 안정성,<br>
+          가독성 좋은 코드와 직관적인 UX가 좋은 소프트웨어의 기본이라 믿습니다.<br>
+          수많은 경험보다 깊은 고민이 배어 있는 단 하나의 완성도 높은 프로젝트로<br>
+          제 가능성을 증명함과 동시에 팀의 확신이 되겠습니다.</p>
+    </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--works" id="works" data-scene="2" aria-hidden="true">
+      <div class="works__backdrop" aria-hidden="true">
+        <video class="works__backdrop-video" data-works-bg-video data-src="assets/videos/works_bg.mp4" muted loop playsinline preload="none"></video>
+        <div class="works__backdrop-shade"></div>
+      </div>
+      <div class="scene__inner scene__inner--works">
+        <div class="scene-panel scene-panel--works scene-panel--flush scene-reveal">
+    <section class="works">
+      <header class="section-head section-head--panel">
+        <p class="section-head__index">iii</p>
+        <h2 class="section-head__title">Works</h2>
+      </header>
+
+      <div class="works-hub" data-works-hub>
+        <nav class="works-hub__filters" aria-label="Works categories">
+          <button type="button" class="works-hub__filter" data-works-filter="web">Web Games</button>
+          <button type="button" class="works-hub__filter is-active" data-works-filter="unity">Unity</button>
+        </nav>
+        <div class="works-hub__panels">
+          <div class="works-hub__panel" data-works-panel="web" id="works-web" hidden>
+            <div class="works-cylinder" data-works-cylinder aria-label="Web projects">
+              <div class="works-cylinder__viewport" data-works-viewport>
+                <div class="works-cylinder__stage" data-works-stage>
+                  <ul class="works-cylinder__ring" data-works-ring>
+          <li class="works__item">            <article class="works__card" tabindex="0">
+              <div class="works__media">
+                <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/FallingDotHunter.png" alt="Falling Dot Hunter 썸네일">
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">Falling Dot Hunter</h4>
+                  <p class="works__summary">마우스 이벤트 핸들링과 비동기 타이머 구조의 에임 트레이닝 웹 콘텐츠</p>
+                  <ul class="works__stack"><li class="works__stack-item">JavaScript</li><li class="works__stack-item">HTML5 Canvas</li></ul>
+                  <div class="works__actions"><a class="works__action" href="https://github.com/czhskr/FallingDotHunter" target="_blank" rel="noopener noreferrer">GitHub</a><a class="works__action works__action--play" href="https://czhskr.github.io/FallingDotHunter/" target="_blank" rel="noopener noreferrer">Play</a></div>
+                </div>
+              </div>
+              <aside class="works__challenge-panel" aria-label="Technical Challenges">
+                <p class="works__challenge-panel-title">Technical Challenges</p>
+                <ul class="works__challenges"><li class="works__challenge-item"><strong>입력 파이프라인 최적화:</strong> 마우스 궤적 선형 보간 알고리즘을 구현하여 주사율 병목으로 인한 포인터 렉을 해결하고, 캔버스 내 십자선의 추적 반응성을 극대화함.</li><li class="works__challenge-item"><strong>비동기 이벤트 루프 스케줄링:</strong> 난이도에 따른 가속 매커니즘을 선형 제어하고, 브라우저 이벤트 루프 스케줄링을 연동하여 시스템 타임아웃 예외를 방지하는 타이머 사이클을 설계함.</li></ul>
+              </aside>
+            </article>
+</li>
+          <li class="works__item">            <article class="works__card" tabindex="0">
+              <div class="works__media">
+                <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/GalaxyDefender.png" alt="Galaxy Defender 썸네일">
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">Galaxy Defender</h4>
+                  <p class="works__summary">상수의 모듈화 구조와 벡터 연산을 적용한 종스크롤 슈팅 웹게임</p>
+                  <ul class="works__stack"><li class="works__stack-item">JavaScript (Vanilla JS)</li><li class="works__stack-item">HTML5 Canvas</li><li class="works__stack-item">Web Storage</li></ul>
+                </div>
+              </div>
+              <aside class="works__challenge-panel" aria-label="Technical Challenges">
+                <p class="works__challenge-panel-title">Technical Challenges</p>
+                <ul class="works__challenges"><li class="works__challenge-item"><strong>SSOT 구조:</strong> 모든 밸런싱 수치와 시스템 상수를 전역 상태 객체로 통합 관리하여 런타임 결합도를 낮추고 유지보수 생산성을 극대화함.</li><li class="works__challenge-item"><strong>방향 벡터 연산 최적화:</strong> 삼각함수와 피타고라스정리를 활용한 실시간 방향 벡터 연산으로 계산 비용을 최소화한 플레이어 조준 투사체 및 선형 보간 기반 유도 추적 시스템을 설계함.</li><li class="works__challenge-item"><strong>세션 수명주기 예외 처리:</strong> Page Visibility API와 런타임 이벤트를 동기화하여 유저 세션 이탈 시 발생하는 데이터 유실 및 렌더링 무한 루프를 원천 차단함.</li></ul>
+              </aside>
+            </article>
+</li>
+          <li class="works__item">            <article class="works__card" tabindex="0">
+              <div class="works__media">
+                <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/MESSIAH.png" alt="MESSIAH 썸네일">
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">MESSIAH</h4>
+                  <p class="works__summary">순수 자바스크립트로 구현한 하이퍼포먼스 Top-down 로그라이크 서바이벌 게임</p>
+                  <ul class="works__stack"><li class="works__stack-item">JavaScript (ES6+)</li><li class="works__stack-item">HTML5 Canvas API</li><li class="works__stack-item">Component-Based Architecture</li></ul>
+                </div>
+              </div>
+              <aside class="works__challenge-panel" aria-label="Technical Challenges">
+                <p class="works__challenge-panel-title">Technical Challenges</p>
+                <ul class="works__challenges"><li class="works__challenge-item"><strong>공간 분할 및 오브젝트 풀링:</strong> 상용 엔진 없이 그리드 기반 공간 분할 충돌 필터링과 800개 규모의 오브젝트 풀링 시스템을 자체 구축하여 GC 오버헤드를 최소화하고 FPS를 안정적으로 방어함.</li><li class="works__challenge-item"><strong>확장형 FSM 설계:</strong> FSM 아키텍처를 기반으로 대시, 도약, 트리거형 범위 경고 등 5단계의 보스 AI 루틴을 예외 처리 버그 없이 안정적으로 결합함.</li></ul>
+              </aside>
+            </article>
+</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="works-hub__panel is-active" data-works-panel="unity" id="works-unity">
+            <div class="works-cylinder" data-works-cylinder aria-label="Unity projects">
+              <div class="works-cylinder__viewport" data-works-viewport>
+                <div class="works-cylinder__stage" data-works-stage>
+                  <ul class="works-cylinder__ring" data-works-ring>
+          <li class="works__item">            <article class="works__card" tabindex="0">
+              <div class="works__media">
+                <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/CatBusters.png" alt="Cat Busters 썸네일">
+                <video class="works__video" data-src="assets/videos/CatBustersPreview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">Cat Busters</h4>
+                  <p class="works__summary">2D 레트로 스프라이트 연출과 3D 공간 물리 연산을 결합한 2.5D 탑다운 슈팅 게임</p>
+                  <ul class="works__stack"><li class="works__stack-item">C#</li><li class="works__stack-item">Unity 3D Engine</li><li class="works__stack-item">Cinemachine</li><li class="works__stack-item">3D Rigidbody Physics</li></ul>
+                  <div class="works__actions"><a class="works__action" href="https://github.com/czhskr/Cat_Busters" target="_blank" rel="noopener noreferrer">GitHub</a><a class="works__action works__action--download" href="https://github.com/czhskr/Cat_Busters/releases/download/v1.0.0/CatBusters-Windows.zip" download>Download</a></div>
+                </div>
+              </div>
+              <aside class="works__challenge-panel" aria-label="Technical Challenges">
+                <p class="works__challenge-panel-title">Technical Challenges</p>
+                <ul class="works__challenges"><li class="works__challenge-item"><strong>물리 충돌 및 동적 가속도 제어:</strong> 물리 컨텍스트 내에서 가속도 튕김이나 밀림 현상을 방지하기 위해 Kinematic 모드와 Rigidbody.MovePosition을 결합한 안정적인 이동 동역학을 구현함.</li><li class="works__challenge-item"><strong>가변 사거리 및 레이캐스팅 연산:</strong> 오브젝트별 고유 충돌 반경(Radius)을 프레임마다 가중 연산하여 유동적인 전투 거리를 산출하는 가변 사거리 알고리즘을 개발함.</li><li class="works__challenge-item"><strong>선형 보간 UI 애니메이션:</strong> 월드 스페이스의 3D 좌표를 뷰포트 스크린 좌표계로 오차 없이 변환하는 인터랙티브 렌더러를 구축함.</li></ul>
+              </aside>
+            </article>
+</li>
+          <li class="works__item">            <article class="works__card" tabindex="0">
+              <div class="works__media">
+                <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/OthersideQuest.png" alt="Otherside Quest 썸네일">
+                <video class="works__video" data-src="assets/videos/OthersideQuestPreview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">Otherside Quest</h4>
+                  <p class="works__summary">2D 레트로 스프라이트 연출과 3D 공간 물리 연산을 결합한 2.5D 쿼터뷰 액션 RPG</p>
+                  <ul class="works__stack"><li class="works__stack-item">C#</li><li class="works__stack-item">Unity 3D Engine</li><li class="works__stack-item">URP (Universal Render Pipeline)</li><li class="works__stack-item">3D Rigidbody Physics</li></ul>
+                </div>
+              </div>
+              <aside class="works__challenge-panel" aria-label="Technical Challenges">
+                <p class="works__challenge-panel-title">Technical Challenges</p>
+                <ul class="works__challenges"><li class="works__challenge-item"><strong>2.5D 그래픽스 파이프라인:</strong> 쿼터뷰 환경의 벽면 파고듦을 막는 카메라 동기화 빌보드 시스템을 구축함.</li><li class="works__challenge-item"><strong>렌더링 최적화 및 투영 가림:</strong> 카메라 절두체 컬링 시스템을 커스텀 설계하여 드로우콜을 절약함.</li><li class="works__challenge-item"><strong>입력 버퍼링 및 물리 FSM:</strong> 연속 공격의 조작감을 위해 연타 입력을 일시 보관하는 공격 입력 버퍼링 알고리즘을 구현함.</li></ul>
+              </aside>
+            </article>
+</li>
+          <li class="works__item">            <article class="works__card works__card--placeholder" tabindex="0" aria-disabled="true">
+              <div class="works__media works__media--placeholder">
+                <div class="works__shade" aria-hidden="true"></div>
+                <div class="works__caption">
+                  <h4 class="works__name">New Unity Project</h4>
+                  <p class="works__summary">콘텐츠 추가 예정</p>
+                  <ul class="works__stack"><li class="works__stack-item">Coming Soon</li></ul>
+                </div>
+              </div>
+            </article>
+</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="works-loop-footer">
+          <p class="works-swipe-hint" data-works-swipe-hint aria-hidden="true"><span aria-hidden="true">←</span> 스와이프 <span aria-hidden="true">→</span></p>
+          <div class="works-loop-gauge" data-works-loop-gauge aria-hidden="true">
+            <div class="works-loop-gauge__track">
+              <div class="works-loop-gauge__fill" data-works-loop-fill></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--skills" id="skills" data-scene="3" aria-hidden="true">
+      <div class="skills__backdrop" aria-hidden="true">
+        <video class="skills__backdrop-video" data-skills-bg-video data-src="assets/videos/skills_bg.mp4" muted loop playsinline preload="none"></video>
+        <div class="skills__backdrop-shade"></div>
+      </div>
+      <div class="scene__inner scene__inner--skills">
+        <div class="scene-panel scene-panel--skills scene-panel--flush scene-reveal">
+    <section class="skills">
+        <header class="section-head section-head--panel">
+          <p class="section-head__index">iv</p>
+          <h2 class="section-head__title">Skills</h2>
+        </header>
+        <div class="skills-cards" data-skills-cards>
+          <div class="skills-cards__viewport" aria-label="Skills cards" role="region">
+            <div class="skills-cards__tabs">
+              <ul class="skills-bookmarks" data-skills-bookmarks aria-label="Skills categories">
+                <li>
+                  <button class="skills-bookmark is-active" type="button" data-skill-bookmark="0" aria-label="Core Languages and Client Development">
+                    <span class="skills-bookmark__tab">
+                      <span class="skills-bookmark__icons">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/csharp.png" alt="">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/javascript.png" alt="">
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button class="skills-bookmark" type="button" data-skill-bookmark="1" aria-label="Frameworks, Engines and Databases">
+                    <span class="skills-bookmark__tab">
+                      <span class="skills-bookmark__icons">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/unity.png" alt="">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/sql.png" alt="">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/html5.png" alt="">
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button class="skills-bookmark" type="button" data-skill-bookmark="2" aria-label="Design and Graphics Tools">
+                    <span class="skills-bookmark__tab">
+                      <span class="skills-bookmark__icons">
+                        <img class="skills-bookmark__icon" loading="lazy" decoding="async" src="assets/images/icons/photoshop.png" alt="">
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <ul class="skills-cards__stack" data-skills-stack>
+              <li class="skills-card" data-skill-card>
+                <div class="skills-card__head">
+                  <div>
+                    <h3 class="skills-card__title">Core Languages &amp; Client Development</h3>
+                  </div>
+                </div>
+                <div class="skills-card__body">
+                  <ul class="skills-card__items">
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/csharp.png" alt="">
+                        <h4 class="skills-card__item-title">C#</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>OOP &amp; Client-Side Development:</strong> 객체 지향 프로그래밍 원리를 이해하고 있으며, 유지보수가 용이한 컴포넌트 기반 시스템을 개발합니다.</p>
+                    </li>
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/javascript.png" alt="">
+                        <h4 class="skills-card__item-title">JavaScript</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>Interactive Web Applications:</strong> 브라우저 환경에서 동적으로 상호작용하는 콘텐츠를 개발하며, 웹게임의 핵심 알고리즘과 상태 관리 로직을 구현합니다.</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="skills-card" data-skill-card>
+                <div class="skills-card__head">
+                  <div>
+                    <h3 class="skills-card__title">Frameworks, Engines &amp; Databases</h3>
+                  </div>
+                </div>
+                <div class="skills-card__body">
+                  <ul class="skills-card__items">
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/unity.png" alt="">
+                        <h4 class="skills-card__item-title">Unity</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>Immersive 3D Experiences:</strong> Unity 엔진을 활용해 3D 공간을 구성하고 물리 엔진을 제어하여 몰입감 있는 게임 플레이와 UX를 구현합니다.</p>
+                    </li>
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/sql.png" alt="">
+                        <h4 class="skills-card__item-title">RDBMS (SQL)</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>Data Modeling &amp; Query Optimization:</strong> 데이터 무결성과 정규화를 고려한 DB 스키마 설계가 가능하며, Join과 Subquery를 활용한 복합 질의 작성이 가능합니다.</p>
+                    </li>
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/html5.png" alt="">
+                        <h4 class="skills-card__item-title">HTML5 / CSS3</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>Web Standards &amp; UI Layout:</strong> 웹 표준과 시멘틱 태그를 준수하여 구조적인 웹페이지 뼈대를 구축하고, 다양한 디바이스에 대응하는 레이아웃을 설계합니다.</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="skills-card" data-skill-card>
+                <div class="skills-card__head">
+                  <div>
+                    <h3 class="skills-card__title">Design &amp; Graphics Tools</h3>
+                  </div>
+                </div>
+                <div class="skills-card__body">
+                  <ul class="skills-card__items">
+                    <li class="skills-card__item">
+                      <div class="skills-card__item-head">
+                        <img class="skills-card__item-icon" loading="lazy" decoding="async" src="assets/images/icons/photoshop.png" alt="">
+                        <h4 class="skills-card__item-title">Adobe Photoshop</h4>
+                      </div>
+                      <p class="skills-card__desc"><strong>Asset &amp; Performance Optimization:</strong> 개발에 필요한 그래픽 리소스를 직접 가공하고, 실행 환경(웹/게임 엔진)에 맞게 용량과 해상도를 최적화하는 렌더링 성능 최적화를 이해하고 있습니다.</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--education" id="education" data-scene="4" aria-hidden="true">
+      <div class="scene__inner">
+        <div class="scene-panel scene-reveal">
+    <section class="education">
+        <header class="section-head section-head--panel">
+          <p class="section-head__index">v</p>
+          <h2 class="section-head__title">Education</h2>
+        </header>
+        <article class="education__card">
+        <h3 class="education__school">신라대학교</h3>
+        <p class="education__major">컴퓨터소프트웨어공학부</p>
+      </article>
+    </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--contact" id="contact" data-scene="5" aria-hidden="true">
+      <div class="scene__inner scene__inner--contact-footer">
+    <div class="contact-footer__body">
+        <div class="scene-panel scene-panel--scroll scene-panel--contact scene-reveal">
+    <section class="contact">
+          <header class="section-head section-head--panel section-head--center">
+            <p class="section-head__index">vi</p>
+            <h2 class="section-head__title">Contact</h2>
+          </header>
+          <p class="contact__text">
+            긴 내용 읽어주셔서 감사드립니다.<br>
+            위 포트폴리오는 제가 직접 기획하고 개발한 프로젝트들로 구성되었으며,<br>
+            매 순간의 경험을 소중히 생각하고 있습니다.
+          </p>
+          <p class="contact__text contact__text--highlight">
+            프로젝트 제안이나 협업 문의는 언제든지 환영합니다.
+          </p>
+
+          <div class="contact__offer">
+            <h3 class="contact__offer-title">Job Offer</h3>
+            <p class="contact__offer-text">
+              저에 대해 궁금하시거나 제안이 필요하시면<br>
+              메일이나 DM을 보내주세요.
+            </p>
+            <a class="contact__mail-btn" href="mailto:lhs0576@sillain.ac.kr">메일 보내기</a>
+          </div>
+
+          <ul class="contact__sns">
+            <li><a class="contact__sns-link" href="https://github.com/czhskr" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a class="contact__sns-link" href="https://instagram.com/la.bcrr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a class="contact__sns-link" href="mailto:lhs0576@sillain.ac.kr">E-mail</a></li>
+          </ul>
+    </section>
+        </div>
+    </div>
+
+    <footer class="footer scene-reveal" id="footer">
+      <p class="footer__copyright">&copy; 2026 Lee HyunSung. All rights reserved.</p>
+    </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CMD Widget -->
+  <div class="cmd-widget" id="cmd-widget" aria-hidden="true">
+    <div class="cmd-widget__panel" role="dialog" aria-labelledby="cmd-widget-title">
+      <header class="cmd-widget__header">
+        <span class="cmd-widget__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        <p class="cmd-widget__title" id="cmd-widget-title">portfolio — cmd</p>
+        <button class="cmd-widget__close" type="button" aria-label="터미널 닫기">&times;</button>
+      </header>
+      <div class="cmd-widget__body">
+        <div class="cmd-widget__output" id="cmd-output" aria-live="polite"></div>
+        <form class="cmd-widget__form" id="cmd-form" autocomplete="off">
+          <label class="cmd-widget__label" for="cmd-input">명령어 입력</label>
+          <span class="cmd-widget__prompt" aria-hidden="true">&gt;</span>
+          <input
+            class="cmd-widget__input"
+            id="cmd-input"
+            type="text"
+            placeholder="help"
+            spellcheck="false"
+            autocomplete="off"
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Contact Widget -->
+  <div class="widget" id="widget" aria-hidden="true">
+    <div class="widget__panel" role="dialog" aria-labelledby="widget-title">
+      <header class="widget__header">
+        <p class="widget__title" id="widget-title">Quick Contact</p>
+        <button class="widget__close" type="button" aria-label="채팅창 닫기">&times;</button>
+      </header>
+      <div class="widget__body">
+        <div class="widget__bubble">
+          <p>안녕하세요.</p>
+          <p>
+            웹·Unity 프로젝트를 직접 개발해 온<br>
+            개발자 <strong>이현성</strong>입니다.
+          </p>
+          <p>
+            메시지를 남기거나 아래 채널로<br>
+            바로 연락해 주세요.
+          </p>
+        </div>
+        <ul class="widget__channels" id="widget-channels"></ul>
+      </div>
+      <footer class="widget__footer">
+        <label class="widget__label" for="widget-input">메시지 입력</label>
+        <input
+          class="widget__input"
+          id="widget-input"
+          type="text"
+          placeholder="메시지를 입력하세요"
+          autocomplete="off"
+        >
+        <button class="widget__send" type="button" aria-label="메일로 보내기">
+          <svg class="widget__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="fab-group fab-group--left">
+    <button class="fab fab--cmd" id="cmd-toggle" type="button" aria-label="터미널 열기" aria-expanded="false">
+      <svg class="fab__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 3v2h2V8H5zm0 4v2h6v-2H5zm8-1h6v2h-6v-2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="fab-group">
+    <button class="fab fab--top" id="back-to-top" type="button" aria-label="맨 위로 이동" hidden>
+      <svg class="fab__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4l-7 7h4v9h6v-9h4l-7-7z"/>
+      </svg>
+    </button>
+    <button class="fab fab--contact" id="widget-toggle" type="button" aria-label="문의창 열기" aria-expanded="false">
+      <svg class="fab__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="js/media-load.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/hero-parallax.js" defer></script>
+  <script src="js/scenes-gsap.js" defer></script>
+  <script src="js/defer-works.js" defer></script>
+  <script src="js/scenes.js" defer></script>
+  <script src="js/scene-bg.js" defer></script>
+  <script src="js/skills-cards.js" defer></script>
+  <script src="js/widget.js" defer></script>
+  <script src="js/cmd-widget.js" defer></script>
+</body>
+</html>

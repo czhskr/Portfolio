@@ -1,0 +1,1006 @@
+/* ===== Scene system (no page scroll) ===== */
+
+html.has-scenes {
+
+  --scene-bottom-safe: 5.5rem;
+
+  --scene-content-w: min(58rem, calc(100vw - 4rem));
+
+  overflow: hidden;
+
+  height: 100%;
+
+}
+
+
+
+html.has-scenes body {
+
+  overflow: hidden;
+
+  height: 100%;
+
+  touch-action: none;
+
+}
+
+
+
+.stage {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+}
+
+
+
+.scene {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  will-change: opacity, transform;
+
+  background: var(--bg);
+
+}
+
+
+
+.scene.is-active,
+
+.scene.is-transitioning,
+
+.scene.is-leaving {
+
+  visibility: visible;
+
+}
+
+
+
+.scene.is-active {
+
+  pointer-events: auto;
+
+  z-index: 2;
+
+}
+
+
+
+.scene.is-transitioning {
+
+  pointer-events: none;
+
+  z-index: 3;
+
+}
+
+
+
+.scene.is-leaving {
+
+  pointer-events: none;
+
+  z-index: 1;
+
+}
+
+
+
+/* Per-scene atmosphere */
+
+.scene--hero {
+
+  background: var(--bg);
+
+}
+
+
+
+.scene--about {
+
+  background:
+
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(255, 255, 255, 0.03), transparent),
+
+    var(--bg);
+
+}
+
+
+
+.scene--works {
+
+  background: var(--bg);
+
+  overflow: visible;
+
+}
+
+
+
+.works__backdrop,
+
+.skills__backdrop {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+
+.works__backdrop-video,
+
+.skills__backdrop-video {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+}
+
+
+
+.works__backdrop-shade,
+
+.skills__backdrop-shade {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(180deg, rgba(3, 3, 3, 0.72) 0%, rgba(3, 3, 3, 0.42) 45%, rgba(3, 3, 3, 0.78) 100%),
+
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.55));
+
+  pointer-events: none;
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .works__backdrop-video,
+
+  .skills__backdrop-video {
+
+    display: none;
+
+  }
+
+}
+
+
+
+.scene--works .scene__inner--works {
+
+  overflow: visible;
+
+}
+
+
+
+.scene--skills {
+
+  background: var(--bg);
+
+}
+
+
+
+.scene--education {
+
+  background:
+
+    radial-gradient(ellipse 60% 50% at 100% 50%, rgba(255, 255, 255, 0.035), transparent),
+
+    var(--bg);
+
+}
+
+
+
+.scene--contact {
+
+  background: var(--bg);
+
+}
+
+
+
+/* ----- Scene inner + centered panel ----- */
+
+.scene__inner {
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  z-index: 1;
+
+  height: 100%;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  padding:
+
+    var(--header-h)
+
+    clamp(1rem, 3vw, 2rem)
+
+    var(--scene-bottom-safe)
+
+    clamp(1rem, 3vw, 2rem);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+
+.scene__inner--hero {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding-inline: clamp(1rem, 3vw, 2rem);
+
+  justify-content: center;
+
+  align-items: stretch;
+
+}
+
+
+
+.scene-panel {
+
+  width: 100%;
+
+  max-width: var(--panel-max);
+
+  margin-inline: auto;
+
+  padding: clamp(1.25rem, 3vh, 2rem) clamp(1.35rem, 3vw, 2rem);
+
+  border: none;
+
+  background: transparent;
+
+}
+
+
+
+.scene-panel--hero {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: min(36rem, var(--panel-max));
+
+  margin-left: auto;
+
+  margin-right: clamp(0.5rem, 4vw, 3rem);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: rgba(3, 3, 3, 0.5);
+
+}
+
+
+
+.scene-panel--scroll {
+
+  flex: 0 1 auto;
+
+  min-height: 0;
+
+  max-height: 100%;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  touch-action: pan-y;
+
+  scrollbar-width: none;
+
+}
+
+
+
+.scene-panel--scroll::-webkit-scrollbar {
+
+  display: none;
+
+}
+
+
+
+.scene-panel--flush {
+
+  padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+
+}
+
+
+
+.scene-panel--works {
+
+  width: 100%;
+
+  max-width: none;
+
+  overflow: visible;
+
+  padding-top: clamp(0.25rem, 0.6vh, 0.5rem);
+
+  padding-bottom: clamp(0.65rem, 1.2vh, 1rem);
+
+}
+
+
+
+.scene-panel--skills {
+
+  width: 100%;
+
+  max-width: var(--scene-content-w);
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 0;
+
+  flex: 1;
+
+  max-height: 100%;
+
+  overflow: visible;
+
+  padding-block: clamp(0.65rem, 1.5vh, 1rem);
+
+}
+
+
+
+.scene--skills .scene__inner--skills {
+
+  justify-content: flex-start;
+
+  overflow: visible;
+
+}
+
+html.has-scenes .scene--works .section-head--panel {
+
+  flex-shrink: 0;
+
+  margin-bottom: clamp(0.45rem, 1vh, 0.7rem);
+
+}
+
+html.has-scenes .scene--skills .section-head--panel {
+
+  flex-shrink: 0;
+
+  margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+
+}
+
+
+
+.scene-panel--contact {
+
+  text-align: center;
+
+  padding-top: clamp(3rem, 4vh, 2.5rem);
+
+  padding-bottom: clamp(0.75rem, 2vh, 1.25rem);
+
+}
+
+
+
+.scene__inner--works {
+
+  align-items: stretch;
+
+  justify-content: flex-start;
+
+  padding-top: calc(var(--header-h) - 0.35rem);
+
+  min-height: 0;
+
+}
+
+.scene__inner--skills,
+
+.scene__inner:has(> .scene-panel--scroll) {
+
+  align-items: stretch;
+
+  justify-content: flex-start;
+
+  padding-top: calc(var(--header-h) + 0.5rem);
+
+  min-height: 0;
+
+}
+
+
+
+/* ----- Hero backdrop ----- */
+
+.scene--hero .hero__backdrop {
+
+  z-index: 0;
+
+}
+
+
+
+/* ----- About / Education ----- */
+
+html.has-scenes .about,
+
+html.has-scenes .education {
+
+  width: 100%;
+
+  padding: 0;
+
+}
+
+
+
+.scene--about .scene__inner,
+
+.scene--education .scene__inner {
+
+  justify-content: center;
+
+}
+
+
+
+/* ----- Works ----- */
+
+html.has-scenes .works {
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+
+html.has-scenes .works-hub {
+
+  flex: 1;
+
+  min-height: 0;
+
+}
+
+html.has-scenes .works-hub__panels {
+
+  flex: 1;
+
+  min-height: 0;
+
+}
+
+html.has-scenes .works-hub__panel {
+
+  flex: 1;
+
+  min-height: 0;
+
+}
+
+html.has-scenes .works-cylinder {
+
+  flex: 1;
+
+  min-height: 0;
+
+  touch-action: none;
+
+}
+
+
+
+html.has-scenes .scene--works .scene__inner--works,
+html.has-scenes .scene--works .scene-panel--works,
+html.has-scenes .scene--works .works,
+html.has-scenes .scene--works .works-hub {
+  overflow: visible;
+}
+
+
+
+html.has-scenes .scene--works .works__card:hover,
+
+html.has-scenes .scene--works .works__card:focus-within {
+
+  transform: none;
+
+}
+
+
+
+html.has-scenes .scene--works .works__card {
+
+  height: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+/* ----- Skills ----- */
+
+html.has-scenes .skills {
+
+  flex: 1;
+
+  width: 100%;
+
+  min-height: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: visible;
+
+}
+
+
+
+/* ----- Contact + Footer ----- */
+
+.scene--contact .scene__inner--contact-footer {
+
+  justify-content: space-between;
+
+  align-items: stretch;
+
+  padding-top: calc(var(--header-h) + 2rem);
+
+  padding-bottom: 1rem;
+
+  overflow: hidden;
+
+  min-height: 0;
+
+}
+
+
+
+.contact-footer__body {
+
+  flex: 1;
+
+  min-height: 0;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: stretch;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+
+
+
+html.has-scenes .scene--contact .contact {
+
+  width: 100%;
+
+}
+
+
+
+.scene--contact .footer {
+
+  flex-shrink: 0;
+
+  width: 100%;
+
+  padding: 0.75rem clamp(1rem, 3vw, 2rem) 0.35rem;
+
+  padding-inline: clamp(1rem, 3vw, 2rem);
+
+  border-top: none;
+
+}
+
+
+
+.scene--contact .footer__copyright {
+
+  font-size: 0.62rem;
+
+  letter-spacing: 0.12em;
+
+  color: var(--text-faint);
+
+}
+
+
+
+/* ----- Scene rail (top-left) ----- */
+
+.scene-rail {
+
+  position: fixed;
+
+  top: calc(var(--header-h) + 0.85rem);
+
+  left: clamp(0.85rem, 2.5vw, 1.75rem);
+
+  z-index: 90;
+
+  width: auto;
+
+  max-width: 14.5rem;
+
+  pointer-events: auto;
+
+}
+
+
+
+.scene-rail__list {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.4rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+
+
+
+.scene-rail__item {
+
+  margin: 0;
+
+}
+
+
+
+.scene-rail__btn {
+
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  align-items: baseline;
+
+  gap: 0.65rem 1.35rem;
+
+  width: 100%;
+
+  padding: 0.35rem 0;
+
+  border: none;
+
+  background: none;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(0.78rem, 1.45vw, 0.95rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  color: var(--text-faint);
+
+  transition: color 0.3s var(--ease);
+
+}
+
+
+
+.scene-rail__btn:hover,
+
+.scene-rail__btn:focus-visible {
+
+  color: var(--text-muted);
+
+  outline: none;
+
+}
+
+
+
+.scene-rail__btn.is-active {
+
+  color: var(--text);
+
+}
+
+
+
+.scene-rail__label {
+
+  line-height: 1.3;
+
+}
+
+
+
+.scene-rail__numeral {
+
+  font-family: var(--font-serif);
+
+  font-size: 1.05rem;
+
+  font-style: italic;
+
+  font-weight: 500;
+
+  letter-spacing: 0.05em;
+
+  text-transform: lowercase;
+
+  color: inherit;
+
+  opacity: 0.65;
+
+}
+
+
+
+.scene-rail__btn.is-active .scene-rail__numeral {
+
+  opacity: 1;
+
+}
+
+
+
+/* Reveal */
+
+.scene-reveal {
+
+  will-change: transform, opacity;
+
+}
+
+
+
+/* Scene iris transition (rail anchor) */
+
+.scene-iris {
+  position: fixed;
+  z-index: 120;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.scene-iris__pulse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem 0 0 -1rem;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.06);
+}
+
+/* Scroll hint */
+
+.scene-hint {
+
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 1.25rem;
+
+  transform: translateX(-50%);
+
+  z-index: 85;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: 0.58rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color: var(--text-faint);
+
+  pointer-events: none;
+
+}
+
+
+
+html.has-scenes body.is-scene-locked .scene-hint {
+
+  opacity: 0;
+
+}
+
+
+
+html.has-scenes body[data-scene="2"] .scene-hint,
+
+html.has-scenes body[data-scene="5"] .scene-hint {
+
+  display: none;
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  html.has-scenes {
+
+    --scene-bottom-safe: 6.5rem;
+
+  }
+
+
+
+  .scene-rail {
+
+    display: none;
+
+  }
+
+
+
+  .scene-panel--hero {
+
+    max-width: 100%;
+
+    margin-right: 0;
+
+  }
+
+
+
+  .scene-hint {
+
+    bottom: 5.5rem;
+
+  }
+
+
+
+  .scene--contact .scene__inner--contact-footer {
+
+    padding-top: calc(var(--header-h) + 2.35rem);
+
+  }
+
+
+
+  .contact-footer__body {
+
+    justify-content: flex-start;
+
+    align-items: stretch;
+
+  }
+
+
+
+  .scene-panel--contact {
+
+    padding-top: clamp(0.35rem, 1.2vh, 0.85rem);
+
+  }
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  html.has-scenes body {
+
+    touch-action: auto;
+
+  }
+
+}
+
