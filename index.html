@@ -76,11 +76,14 @@
           <p class="section-head__index">ii</p>
           <h2 class="section-head__title">About</h2>
         </header>
-        <p class="about__text">일단 부딪히며 배우고, 끝까지 파고들어 내 것으로 만드는 개발자입니다.<br>
-          임시방편의 해결보다 원리를 명확히 이해하려 노력하여 프로젝트의 높은 안정성,<br>
-          가독성 좋은 코드와 직관적인 UX가 좋은 소프트웨어의 기본이라 믿습니다.<br>
-          수많은 경험보다 깊은 고민이 배어 있는 단 하나의 완성도 높은 프로젝트로<br>
-          제 가능성을 증명함과 동시에 팀의 확신이 되겠습니다.</p>
+        <p class="about__text">
+          일단 부딪히며 배우고, 끝까지 파고들어 내 것으로 만드는 개발자입니다.<br><br>
+          임시방편의 임시 처리보다 작동 원리를 명확히 이해하는 데 집중합니다.<br>
+          시스템의 높은 구동 안정성, 가독성 높은 코드, 그리고 유기적인 반응성이<br>
+          좋은 소프트웨어의 기본이라 믿기 때문입니다.<br><br>
+          얕은 깊이의 수많은 경험보다, 깊은 고민이 배어 있는 단 하나의 완성도 높은<br>
+          프로젝트로 제 가능성을 증명하며 팀의 확신이 되겠습니다.
+        </p>
     </section>
         </div>
       </div>
@@ -106,7 +109,7 @@
         </nav>
         <div class="works-hub__panels">
           <div class="works-hub__panel" data-works-panel="web" id="works-web" hidden>
-            <div class="works-cylinder" data-works-cylinder aria-label="Web projects">
+            <section class="works-cylinder" data-works-cylinder aria-label="Web projects">
               <div class="works-cylinder__viewport" data-works-viewport>
                 <div class="works-cylinder__stage" data-works-stage>
                   <ul class="works-cylinder__ring" data-works-ring>
@@ -115,7 +118,7 @@
                 <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/FallingDotHunter.png" alt="Falling Dot Hunter 썸네일">
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">Falling Dot Hunter</h4>
+                  <h3 class="works__name">Falling Dot Hunter</h3>
                   <p class="works__summary">마우스 이벤트 핸들링과 비동기 타이머 구조의 에임 트레이닝 웹 콘텐츠</p>
                   <ul class="works__stack"><li class="works__stack-item">JavaScript</li><li class="works__stack-item">HTML5 Canvas</li></ul>
                   <div class="works__actions"><a class="works__action" href="https://github.com/czhskr/FallingDotHunter" target="_blank" rel="noopener noreferrer">GitHub</a><a class="works__action works__action--play" href="https://czhskr.github.io/FallingDotHunter/" target="_blank" rel="noopener noreferrer">Play</a></div>
@@ -132,7 +135,7 @@
                 <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/GalaxyDefender.png" alt="Galaxy Defender 썸네일">
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">Galaxy Defender</h4>
+                  <h3 class="works__name">Galaxy Defender</h3>
                   <p class="works__summary">상수의 모듈화 구조와 벡터 연산을 적용한 종스크롤 슈팅 웹게임</p>
                   <ul class="works__stack"><li class="works__stack-item">JavaScript (Vanilla JS)</li><li class="works__stack-item">HTML5 Canvas</li><li class="works__stack-item">Web Storage</li></ul>
                 </div>
@@ -148,7 +151,7 @@
                 <img class="works__image" loading="lazy" decoding="async" src="assets/images/works/MESSIAH.png" alt="MESSIAH 썸네일">
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">MESSIAH</h4>
+                  <h3 class="works__name">MESSIAH</h3>
                   <p class="works__summary">순수 자바스크립트로 구현한 하이퍼포먼스 Top-down 로그라이크 서바이벌 게임</p>
                   <ul class="works__stack"><li class="works__stack-item">JavaScript (ES6+)</li><li class="works__stack-item">HTML5 Canvas API</li><li class="works__stack-item">Component-Based Architecture</li></ul>
                 </div>
@@ -162,10 +165,10 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
           <div class="works-hub__panel is-active" data-works-panel="unity" id="works-unity">
-            <div class="works-cylinder" data-works-cylinder aria-label="Unity projects">
+            <section class="works-cylinder" data-works-cylinder aria-label="Unity projects">
               <div class="works-cylinder__viewport" data-works-viewport>
                 <div class="works-cylinder__stage" data-works-stage>
                   <ul class="works-cylinder__ring" data-works-ring>
@@ -175,7 +178,7 @@
                 <video class="works__video" data-src="assets/videos/CatBustersPreview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">Cat Busters</h4>
+                  <h3 class="works__name">Cat Busters</h3>
                   <p class="works__summary">2D 레트로 스프라이트 연출과 3D 공간 물리 연산을 결합한 2.5D 탑다운 슈팅 게임</p>
                   <ul class="works__stack"><li class="works__stack-item">C#</li><li class="works__stack-item">Unity 3D Engine</li><li class="works__stack-item">Cinemachine</li><li class="works__stack-item">3D Rigidbody Physics</li></ul>
                   <div class="works__actions"><a class="works__action" href="https://github.com/czhskr/Cat_Busters" target="_blank" rel="noopener noreferrer">GitHub</a><a class="works__action works__action--download" href="https://github.com/czhskr/Cat_Busters/releases/download/v1.0.0/CatBusters-Windows.zip" download>Download</a></div>
@@ -193,7 +196,7 @@
                 <video class="works__video" data-src="assets/videos/OthersideQuestPreview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">Otherside Quest</h4>
+                  <h3 class="works__name">Otherside Quest</h3>
                   <p class="works__summary">2D 레트로 스프라이트 연출과 3D 공간 물리 연산을 결합한 2.5D 쿼터뷰 액션 RPG</p>
                   <ul class="works__stack"><li class="works__stack-item">C#</li><li class="works__stack-item">Unity 3D Engine</li><li class="works__stack-item">URP (Universal Render Pipeline)</li><li class="works__stack-item">3D Rigidbody Physics</li></ul>
                 </div>
@@ -208,7 +211,7 @@
               <div class="works__media works__media--placeholder">
                 <div class="works__shade" aria-hidden="true"></div>
                 <div class="works__caption">
-                  <h4 class="works__name">New Unity Project</h4>
+                  <h3 class="works__name">New Unity Project</h3>
                   <p class="works__summary">콘텐츠 추가 예정</p>
                   <ul class="works__stack"><li class="works__stack-item">Coming Soon</li></ul>
                 </div>
@@ -218,7 +221,7 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
         <div class="works-loop-footer">
@@ -430,7 +433,6 @@
 
   </main>
 
-  <!-- CMD Widget -->
   <div class="cmd-widget" id="cmd-widget" aria-hidden="true">
     <div class="cmd-widget__panel" role="dialog" aria-labelledby="cmd-widget-title">
       <header class="cmd-widget__header">
@@ -456,7 +458,6 @@
     </div>
   </div>
 
-  <!-- Quick Contact Widget -->
   <div class="widget" id="widget" aria-hidden="true">
     <div class="widget__panel" role="dialog" aria-labelledby="widget-title">
       <header class="widget__header">
