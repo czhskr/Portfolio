@@ -2,7 +2,7 @@
 
 웹·Unity 개발자 **이현성**의 2026 포트폴리오 사이트입니다.  
 블랙·화이트 모노톤을 기반으로, 전통적인 세로 스크롤 대신 **씬(Scene) 단위 전환**으로 콘텐츠를 탐색하는 단일 페이지 애플리케이션입니다.
-[포트폴리오](https://czhskr.github.io/Portfolio2026/)
+[포트폴리오](https://czhskr.github.io/Portfolio/)
 
 ---
 
